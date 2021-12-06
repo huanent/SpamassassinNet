@@ -1,6 +1,8 @@
+using SpamassassinNet.CommandResults;
+
 namespace SpamassassinNet.Commands;
 
-public abstract class AbstractMessage:ICommand
+public abstract class AbstractMessage<T> : ICommand<T> where T : BasicResult
 {
     protected AbstractMessage(string message)
     {

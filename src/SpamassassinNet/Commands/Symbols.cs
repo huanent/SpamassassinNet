@@ -1,6 +1,8 @@
+using SpamassassinNet.CommandResults;
+
 namespace SpamassassinNet.Commands;
 
-public class Symbols : AbstractMessage
+public class Symbols : AbstractMessage<CheckResult>
 {
     public Symbols(string message) : base(message)
     {

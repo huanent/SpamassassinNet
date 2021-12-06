@@ -13,7 +13,7 @@ public class CheckTest
     {
         var client = Helper.CreateClient();
         var mail = Helper.GetRes("spam.eml");
-        var result = client.SendAsync<CheckResult>(new Check(mail)).Result;
+        var result = client.SendAsync(new Check(mail)).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsFalse(result.Spam);
         Assert.IsNotNull(result.Score);
@@ -23,7 +23,7 @@ public class CheckTest
     public void SendErrorMailContentTest()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync<CheckResult>(new Check("xxx")).Result;
+        var result = client.SendAsync(new Check("xxx")).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsTrue(result.Spam);
         Assert.IsNotNull(result.Score);

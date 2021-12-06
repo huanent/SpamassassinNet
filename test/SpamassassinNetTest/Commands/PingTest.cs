@@ -11,7 +11,7 @@ public class PingTest
     public void Send()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync<BasicResult>(new Ping()).Result;
+        var result = client.SendAsync(new Ping()).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsNotNull(result.Status, "PONG");
     }

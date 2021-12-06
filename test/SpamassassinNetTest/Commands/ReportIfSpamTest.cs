@@ -12,7 +12,7 @@ public class ReportIfSpamTest
     {
         var client = Helper.CreateClient();
         var mail = Helper.GetRes("spam.eml");
-        var result = client.SendAsync<CheckResult>(new ReportIfSpam(mail)).Result;
+        var result = client.SendAsync(new ReportIfSpam(mail)).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsFalse(result.Spam);
         Assert.IsNotNull(result.Score);
@@ -23,7 +23,7 @@ public class ReportIfSpamTest
     public void SendErrorMailContentTest()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync<CheckResult>(new ReportIfSpam("xxx")).Result;
+        var result = client.SendAsync(new ReportIfSpam("xxx")).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsTrue(result.Spam);
         Assert.IsNotNull(result.Score);

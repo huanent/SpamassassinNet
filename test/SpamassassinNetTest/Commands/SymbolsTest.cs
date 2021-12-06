@@ -12,7 +12,7 @@ public class SymbolsTest
     {
         var client = Helper.CreateClient();
         var mail = Helper.GetRes("spam.eml");
-        var result = client.SendAsync<CheckResult>(new Symbols(mail)).Result;
+        var result = client.SendAsync(new Symbols(mail)).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsFalse(result.Spam);
         Assert.IsNotNull(result.Score);
@@ -23,7 +23,7 @@ public class SymbolsTest
     public void SendErrorMailContentTest()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync<CheckResult>(new Symbols("xxx")).Result;
+        var result = client.SendAsync(new Symbols("xxx")).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsTrue(result.Spam);
         Assert.IsNotNull(result.Score);

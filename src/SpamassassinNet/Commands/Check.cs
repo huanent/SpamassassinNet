@@ -1,6 +1,8 @@
+using SpamassassinNet.CommandResults;
+
 namespace SpamassassinNet.Commands;
 
-public class Check : AbstractMessage
+public class Check : AbstractMessage<CheckResult>
 {
     public override string Name => "CHECK";
 

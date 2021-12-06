@@ -10,8 +10,7 @@ public static class Helper
         ClientOptions options = new()
         {
             Host = TestConfig.Host,
-            Port = TestConfig.Port,
-            EnableHeartbeat = false
+            Port = TestConfig.Port
         };
 
         return new Client(options);

@@ -1,8 +1,9 @@
 using System.Text;
+using SpamassassinNet.CommandResults;
 
 namespace SpamassassinNet;
 
-public interface ICommand
+public interface ICommand<T> where T : BasicResult
 {
     string Name { get; }
 
