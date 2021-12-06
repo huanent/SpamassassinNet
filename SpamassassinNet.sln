@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{476C7302-0E48-4ADE-9F89-9A189EC54B00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9882D1E1-2038-46E9-B53D-A0C9D54502D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamassassinNet", "src\SpamassassinNet\SpamassassinNet.csproj", "{FC85ECFF-F003-422D-963E-F934E6C1075D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamassassinNetTest", "test\SpamassassinNetTest\SpamassassinNetTest.csproj", "{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC85ECFF-F003-422D-963E-F934E6C1075D} = {476C7302-0E48-4ADE-9F89-9A189EC54B00}
+		{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5} = {9882D1E1-2038-46E9-B53D-A0C9D54502D0}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC85ECFF-F003-422D-963E-F934E6C1075D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC85ECFF-F003-422D-963E-F934E6C1075D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC85ECFF-F003-422D-963E-F934E6C1075D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC85ECFF-F003-422D-963E-F934E6C1075D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD492BD-606B-49F7-A8DD-2FE9F81E83E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
