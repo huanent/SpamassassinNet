@@ -1,0 +1,83 @@
+Return-path: <seydinaaliyoubalde@gmail.com>
+Original-recipient: rfc822;huanent@icloud.com
+Received: from mr28p00im-smtpin028.me.com by p38-mailgateway-smtp-8667ffb8c8-x7xgb (mailgateway 2203B126)
+	with SMTP id e1f74a4f-ad43-4c26-8647-c47bdf08e7b9 
+	for <huanent@icloud.com>; Sat, 20 Nov 2021 13:09:46 GMT
+X-Apple-MoveToFolder: Junk 
+X-Apple-Action: CLXJUNK/Junk
+X-Apple-UUID: e1f74a4f-ad43-4c26-8647-c47bdf08e7b9
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
+	by mr28p00im-smtpin028.me.com (Postfix) with ESMTPS id 26CDF703963
+	for <huanent@icloud.com>; Sat, 20 Nov 2021 13:09:38 +0000 (UTC)
+X-ICL-SCORE: 4.3330340300
+X-ICL-INFO: GAtbVUweBVFGSVVDSAMGUldZCh4MXUMRSFsIVVhDQ19XGgoPWhBTBkhbFRIBVF8MFBgKHgFfQwAU
+ FQISOFdbAxwVSBQXXRRCEx1bVR9dVwsZVwUYFRIWERwJW1VKAA9MTUxIRUgIGFZGW0YfHVxZX1cU
+ Bx4UHVMGRFQAQ0seUQ0aHgoSVlNZD1dZFgMKDRQPFBAKWh1UB08TTVVZH19ZBRkcSBQXXRRCER1b
+ VR9dVwsZVwUYFRIWDxwdW1VEc3cqGzpWAQFFBjADHhQTEUNuUDsTLkVTX0YAQDoWHCJYWVszHjI0
+ SlFAGyEBKTRFdXEVNRQHHhQeUQ8UEApZG19bXFdZFBRFEl4XFBcDGQxwXwEZFhMTVlNZD1c=
+x-spam-flag: yes
+x-suspected-spam: true
+Authentication-Results: dmarc.icloud.com; dmarc=pass header.from=gmail.com
+x-dmarc-info: pass=pass; dmarc-policy=none; s=r1; d=r1
+x-dmarc-policy: v=DMARC1; p=none; sp=quarantine; rua=mailto:mailauth-reports@google.com
+Authentication-Results: dkim-verifier.icloud.com;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.b=PA5MkzvU
+Authentication-Results: spf.icloud.com; spf=pass (spf.icloud.com: domain of seydinaaliyoubalde@gmail.com designates 209.85.208.43 as permitted sender) smtp.mailfrom=seydinaaliyoubalde@gmail.com
+Received-SPF: pass (spf.icloud.com: domain of seydinaaliyoubalde@gmail.com designates 209.85.208.43 as permitted sender) receiver=spf.icloud.com; client-ip=209.85.208.43; helo=mail-ed1-f43.google.com; envelope-from=seydinaaliyoubalde@gmail.com
+Received: by mail-ed1-f43.google.com with SMTP id y13so54544301edd.13
+        for <huanent@icloud.com>; Sat, 20 Nov 2021 05:09:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=VAPeaAQNJlPRwfpwmdG9GbvvMDW2g+qh9NYc7E1WEeI=;
+        b=PA5MkzvU1fUtc3zbKpAOJL+avY+zVrB6/7NZG+ZmMZRxNqlmgq3AUxu0tOvq5kOBt5
+         sjmy7yygH8S29bCaOJKsBUoinlFJRhouhtN2AqxuimtckNDzr8OF/1gDEKGSFcrh+EUo
+         AiMQQXipTCicOolcnJCAAr7gsuvfeZqLXgtsMG/cMNVrtuFf9ExzV7X1d6Jpi5ho59Du
+         ocqcp+L6vbNQWYQEClJyL6WtPrsTuJLKR9Jk+UEvgmTpge0E2z9QbWOS0L+JbEaTnNxi
+         c45LUGuFxtvXg6wXDmW3VPLi2G+xSpmxjUPDFJusd2TSgeLA1cBmmhldXF1KLIC7jD5F
+         SbHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=VAPeaAQNJlPRwfpwmdG9GbvvMDW2g+qh9NYc7E1WEeI=;
+        b=s3yhRg03KmXAYpbIgY3dJGNskIerbybI0AEgjlocsLsFbM1mrnt4nbozFPlhgEE/CX
+         XZIeBZEQ4yNhVx9nRNSkNgF8/LbUacMb6AeljYRBXd3VvyfZQrLi9cl7MLX6z6uJj8J8
+         hp2y2HzDC3K4s0a03dVO5K6Aa9j9jF1IlHYjlzRf9ZNaE/IqkU21LkYBspyxaLoMKGeh
+         Bbx6iH1Y0ItVb3RwsqI+5gQlmXFTsv+jTk9sO/8yjJS/u/ZzkJS65fcXAW6VO/xxDIqf
+         ToRJVSbx4MF3Yi88xVbLEOcJXPijOlydMJvJwhbY7+Udhn6SrTewMbuT/+55MoF+JW/N
+         1C5g==
+X-Gm-Message-State: AOAM531tk4w2VtPZVnkk0uUTjlzS/4nn1fRfvJHrUJCFZ9ryyQkyZbgO
+	t/f5K7M/sM7R/FkbIuuZSp7/P8qnZL/N0D3JbWc=
+X-Google-Smtp-Source: ABdhPJxibzM/3elfPuDEMLa2GYqUYL4ijV6Gai2Mh34H1Pl2Pom4b1Bzj5ycDZNSg8tC4vfyFMYJrnmxRFN5L0Cm5WM=
+X-Received: by 2002:aa7:d4c3:: with SMTP id t3mr38016438edr.268.1637413777257;
+ Sat, 20 Nov 2021 05:09:37 -0800 (PST)
+MIME-Version: 1.0
+From: Derrick Zach <derrick.r.zach1615@gmail.com>
+Date: Sat, 20 Nov 2021 14:09:19 +0100
+Message-ID: <CAHnC0vyu0RvgrdisX2NjH2+opb5CpkZho9FgTC2avyTxOC=EGw@mail.gmail.com>
+Subject: 
+To: undisclosed-recipients:;
+Content-Type: multipart/alternative; boundary="0000000000008b378505d1381af1"
+X-MANTSH: 1TEIXR1gYEloaGkNHB0tNT0ReQ0QZHhsaEQpMQxcbGgQbGxgEEhwEHx8QGx4aHxo
+ RCkxZFwcYHhkRCllEF2ZLRnNLGRp+eVtaEQpZTRdgX0RBEQpZSRcHGBNxGQYHGxN3BhgZBhoGB
+ xgfQAYYEwYHGxIdcRoQHRl3BhoGGxoGGgYHHB8GGgYacRoQGncGGhEKWV4XbGx5EQpDThdQEkJ
+ rQ1BQUgd+ek94U3NsTUYTSW0ZWHNoUm0ZHX9hXxEKWFwXGQQaBB4fB0sbGxscGk8cBRsdBBsbG
+ wQbHx8EGB4aEBseGh8aEQpeWRdzUFpNUxEKTVwXHxIRCkxaF2h4ek0TaxEKRVkXQhEKTF8XegU
+ FBQUFBQUFAQURCk1OF2lrEQpDWhcYGhMEEh8EGBoSBB4ZEQpCXhcbEQpEXhcaEQpCXBcbEQpeT
+ hcbEQpCSxdjU2NrexNYfhpfXhEKQkkXY1Nja3sTWH4aX14RCkJFF29lbF59fEwaRnNPEQpCThd
+ jU2NrexNYfhpfXhEKQkwXZkJdWWB/TRN/TwURCkJsF2ATSHoSS0VQRRhgEQpCWBdgZ0RuRU1Cb
+ EQdGhEKTV4XBxsRClpYFxgRCnBoF2tCXG19f2USQG0eEAcZGhEKcGwXbHxhb01BHxNOTkcQBxk
+ aEQptfhcHGxEKWE0XSxE=
+X-CLX-Shades: Junk
+
+--0000000000008b378505d1381af1
+Content-Type: text/plain; charset="UTF-8"
+
+Can i share something with you
+
+--0000000000008b378505d1381af1
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">Can i share something with you</div>
+
+--0000000000008b378505d1381af1--

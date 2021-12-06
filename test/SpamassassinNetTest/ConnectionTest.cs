@@ -6,7 +6,7 @@ namespace SpamassassinNetTest;
 public class ConnectionTest
 {
     [TestMethod]
-    public void Send()
+    public void SendTest()
     {
         var connection = new Connection(TestConfig.Host, TestConfig.Port);
         var rsp = connection.SendAsync("PING SPAMC/1.5\r\nContent-length: 0\r\n\r\n").Result;

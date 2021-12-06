@@ -1,5 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SpamassassinNet.CommandResults;
 
 namespace SpamassassinNetTest;
 
@@ -10,7 +11,7 @@ public class CommandResultTest
     public void CutOneLineNotWrapTest()
     {
         var content = "SPAMD/1.5 0 PONG";
-        var result = CommandResult.CutSpan(content, out var surplus);
+        var result = BasicResult.CutSpan(content, out var surplus);
         Assert.IsNull(result);
         Assert.AreEqual(surplus, content);
     }
@@ -19,7 +20,7 @@ public class CommandResultTest
     public void CutOneLineTest()
     {
         var content = "SPAMD/1.5 0 PONG\r\n";
-        var result = CommandResult.CutSpan(content, out var surplus);
+        var result = BasicResult.CutSpan(content, out var surplus);
         Assert.AreEqual(result, "SPAMD/1.5 0 PONG");
         Assert.AreEqual(surplus, string.Empty);
     }

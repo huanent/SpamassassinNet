@@ -1,3 +1,4 @@
+using SpamassassinNet.CommandResults;
 using SpamassassinNet.Commands;
 
 namespace SpamassassinNet;
@@ -22,15 +23,15 @@ public class Client
 
         do
         {
-            await SendAsync(new Ping());
+            await SendAsync<BasicResult>(new Ping());
         } while (await timer.WaitForNextTickAsync(token));
     }
 
-    public async Task<CommandResult> SendAsync(ICommand command)
+    public async Task<T?> SendAsync<T>(ICommand command) where T : BasicResult
     {
         var connection = new Connection(_options.Host, _options.Port);
         var messagePack = command.ToMessagePack();
         var result = await connection.SendAsync(messagePack);
-        return new CommandResult(result);
+        return (T?) Activator.CreateInstance(typeof(T), result);
     }
 }

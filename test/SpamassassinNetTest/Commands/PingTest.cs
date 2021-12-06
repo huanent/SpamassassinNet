@@ -2,21 +2,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpamassassinNet.CommandResults;
 using SpamassassinNet.Commands;
 
-namespace SpamassassinNetTest;
+namespace SpamassassinNetTest.Commands;
 
 [TestClass]
-public class ClientTest
+public class PingTest
 {
     [TestMethod]
-    public void SendTest()
+    public void Send()
     {
         var client = Helper.CreateClient();
         var result = client.SendAsync<BasicResult>(new Ping()).Result;
         Assert.AreEqual(result.Code, 0);
-        Assert.AreEqual(result.Status, "PONG");
-        
-        var result2 = client.SendAsync<BasicResult>(new Ping()).Result;
-        Assert.AreEqual(result2.Code, 0);
-        Assert.AreEqual(result2.Status, "PONG");
+        Assert.IsNotNull(result.Status, "PONG");
     }
 }
