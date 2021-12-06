@@ -3,7 +3,7 @@ using SpamassassinNet.CommandResults;
 
 namespace SpamassassinNet;
 
-public interface ICommand<T> where T : BasicResult
+public interface ICommand<T> where T : ResultBase
 {
     string Name { get; }
 
