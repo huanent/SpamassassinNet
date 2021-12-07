@@ -11,12 +11,11 @@ public class ClientTest
     public void SendTest()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync(new PingCommand()).Result;
-        Assert.AreEqual(result.Code, 0);
-        Assert.AreEqual(result.Status, "PONG");
-        
-        var result2 = client.SendAsync(new PingCommand()).Result;
-        Assert.AreEqual(result2.Code, 0);
-        Assert.AreEqual(result2.Status, "PONG");
+        for (int i = 0; i < 20; i++)
+        {
+            var result = client.SendAsync(new PingCommand()).Result;
+            Assert.AreEqual(result.Code, 0);
+            Assert.AreEqual(result.Status, "PONG");
+        }
     }
 }
