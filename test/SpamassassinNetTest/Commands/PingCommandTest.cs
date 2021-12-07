@@ -5,12 +5,14 @@ using SpamassassinNet.Commands;
 namespace SpamassassinNetTest.Commands;
 
 [TestClass]
-public class SkipTest
+public class PingCommandTest
 {
     [TestMethod]
     public void SendTest()
     {
         var client = Helper.CreateClient();
-        _ = client.SendAsync(new Skip("xxx")).Result;
+        var result = client.SendAsync(new PingCommand()).Result;
+        Assert.AreEqual(result.Code, 0);
+        Assert.IsNotNull(result.Status, "PONG");
     }
 }

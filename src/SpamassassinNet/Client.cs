@@ -12,11 +12,11 @@ public class Client
         _options = options;
     }
 
-    public async Task<T?> SendAsync<T>(ICommand<T> command) where T : ResultBase
+    public async Task<T> SendAsync<T>(CommandBase<T> command) where T : ResultBase
     {
         var connection = new Connection(_options.Host, _options.Port);
-        var messagePack = command.ToMessagePack();
+        var messagePack = command.ToString(_options.ProtocolVersion, _options.User);
         var result = await connection.SendAsync(messagePack);
-        return (T?) Activator.CreateInstance(typeof(T), result);
+        return (T) Activator.CreateInstance(typeof(T), result);
     }
 }

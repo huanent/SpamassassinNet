@@ -10,7 +10,8 @@ public static class Helper
         ClientOptions options = new()
         {
             Host = TestConfig.Host,
-            Port = TestConfig.Port
+            Port = TestConfig.Port,
+            User = "spamd"
         };
 
         return new Client(options);

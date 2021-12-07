@@ -1,8 +1,8 @@
 namespace SpamassassinNet.CommandResults;
 
-public class CheckResult : BasicResult
+public class SpamScoreResult : BasicResult
 {
-    public CheckResult(string content) : base(content)
+    public SpamScoreResult(string content) : base(content)
     {
     }
 

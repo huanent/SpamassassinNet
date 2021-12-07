@@ -5,14 +5,14 @@ using SpamassassinNet.Commands;
 namespace SpamassassinNetTest.Commands;
 
 [TestClass]
-public class ReportIfSpamTest
+public class ReportCommandTest
 {
     [TestMethod]
     public void SendTest()
     {
         var client = Helper.CreateClient();
-        var mail = Helper.GetRes("spam.eml");
-        var result = client.SendAsync(new ReportIfSpam(mail)).Result;
+        var mail = Helper.GetRes("spam1.eml");
+        var result = client.SendAsync(new ReportCommand(mail)).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsFalse(result.Spam);
         Assert.IsNotNull(result.Score);
@@ -23,7 +23,7 @@ public class ReportIfSpamTest
     public void SendErrorMailContentTest()
     {
         var client = Helper.CreateClient();
-        var result = client.SendAsync(new ReportIfSpam("xxx")).Result;
+        var result = client.SendAsync(new ReportCommand("xxx")).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsTrue(result.Spam);
         Assert.IsNotNull(result.Score);
