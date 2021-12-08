@@ -2,7 +2,7 @@ using SpamassassinNet.CommandResults;
 
 namespace SpamassassinNet.Commands;
 
-public class ProcessCommand : CommandBase<ResultBase>
+public class ProcessCommand : CommandBase<SpamScoreResult>
 {
     public ProcessCommand(string body)
     {

@@ -18,5 +18,6 @@ public class TellCommandTest
         };
 
         var result = client.SendAsync(command).Result;
+        Assert.AreEqual(result.Code, 0);
     }
 }

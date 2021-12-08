@@ -17,13 +17,15 @@ internal class Connection
     {
         using var client = new TcpClient(AddressFamily.InterNetwork);
         await client.ConnectAsync(_host ?? throw new NullReferenceException(), _port);
+        client.SendBufferSize = 1024 * 1024 * 5;
+        client.ReceiveBufferSize = 1024 * 1024 * 5;
         await using var stream = client.GetStream();
         await using var writer = new StreamWriter(stream);
         await writer.WriteAsync(message);
         await writer.FlushAsync();
         client.Client.Shutdown(SocketShutdown.Send);
         using var reader = new StreamReader(stream);
-        var result = reader.ReadToEnd();
+        var result = await reader.ReadToEndAsync();
         client.Client.Shutdown(SocketShutdown.Both);
         return result;
     }

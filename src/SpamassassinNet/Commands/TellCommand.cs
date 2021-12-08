@@ -2,7 +2,7 @@ using SpamassassinNet.CommandResults;
 
 namespace SpamassassinNet.Commands;
 
-public class TellCommand : CommandBase<ResultBase>
+public class TellCommand : CommandBase<BasicResult>
 {
     protected override string Name => "TELL";
     protected override string Body { get; }
