@@ -15,6 +15,7 @@ public class Client
     public async Task<T> SendAsync<T>(CommandBase<T> command) where T : ResultBase
     {
         var connection = new Connection(_options.Host, _options.Port);
+        if (_options.SessionTimeout.HasValue) connection.Timeout = _options.SessionTimeout.Value;
         var messagePack = command.ToString(_options.ProtocolVersion, _options.User);
         var result = await connection.SendAsync(messagePack);
         return (T) Activator.CreateInstance(typeof(T), result);
