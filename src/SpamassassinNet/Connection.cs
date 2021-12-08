@@ -16,8 +16,6 @@ internal class Connection
     internal async Task<string> SendAsync(string message)
     {
         using var client = new TcpClient(AddressFamily.InterNetwork);
-        client.SendTimeout = 1000;
-        client.ReceiveTimeout = 1000;
         await client.ConnectAsync(_host ?? throw new NullReferenceException(), _port);
         await using var stream = client.GetStream();
         await using var writer = new StreamWriter(stream);
@@ -25,7 +23,7 @@ internal class Connection
         await writer.FlushAsync();
         client.Client.Shutdown(SocketShutdown.Send);
         using var reader = new StreamReader(stream);
-        var result= await reader.ReadToEndAsync();
+        var result = reader.ReadToEnd();
         client.Client.Shutdown(SocketShutdown.Both);
         return result;
     }

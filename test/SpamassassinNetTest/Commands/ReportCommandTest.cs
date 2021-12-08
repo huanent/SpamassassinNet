@@ -11,14 +11,14 @@ public class ReportCommandTest
     public void SendTest()
     {
         var client = Helper.CreateClient();
-        var mail = Helper.GetRes("spam1.eml");
+        var mail = Helper.GetRes("spam2.eml");
         var result = client.SendAsync(new ReportCommand(mail)).Result;
         Assert.AreEqual(result.Code, 0);
         Assert.IsFalse(result.Spam);
         Assert.IsNotNull(result.Score);
         Assert.IsNotNull(result.Body);
     }
-    
+
     [TestMethod]
     public void SendErrorMailContentTest()
     {

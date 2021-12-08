@@ -10,7 +10,7 @@ public class TellCommandTest
     public void SendTest()
     {
         var client = Helper.CreateClient();
-        var mail = Helper.GetRes("spam1.eml");
+        var mail = Helper.GetRes("spam2.eml");
         var command = new TellCommand(mail)
         {
             MessageClass = MessageClass.Spam,
