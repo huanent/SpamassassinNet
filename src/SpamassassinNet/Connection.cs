@@ -1,4 +1,5 @@
 using System.Net.Sockets;
+using System.Text;
 
 namespace SpamassassinNet;
 
@@ -15,18 +16,30 @@ internal class Connection
 
     internal async Task<string> SendAsync(string message)
     {
-        using var client = new TcpClient(AddressFamily.InterNetwork);
-        await client.ConnectAsync(_host ?? throw new NullReferenceException(), _port);
-        client.SendBufferSize = 1024 * 1024 * 5;
-        client.ReceiveBufferSize = 1024 * 1024 * 5;
-        await using var stream = client.GetStream();
-        await using var writer = new StreamWriter(stream);
-        await writer.WriteAsync(message);
-        await writer.FlushAsync();
-        client.Client.Shutdown(SocketShutdown.Send);
-        using var reader = new StreamReader(stream);
-        var result = await reader.ReadToEndAsync();
-        client.Client.Shutdown(SocketShutdown.Both);
-        return result;
+        var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        
+        try
+        {
+            await socket.ConnectAsync(_host ?? throw new NullReferenceException(), _port);
+            var messagePack = Encoding.ASCII.GetBytes(message);
+            await socket.SendAsync(messagePack.AsMemory(), SocketFlags.None);
+            socket.Shutdown(SocketShutdown.Send);
+            var buffer = new Memory<byte>(new byte[1025 * 512]);
+            var resultPack = new List<byte>();
+
+            while (true)
+            {
+                var length = await socket.ReceiveAsync(buffer, SocketFlags.None);
+                if (length == 0) break;
+                resultPack.AddRange(buffer[..length].ToArray());
+            }
+
+            var result = Encoding.ASCII.GetString(resultPack.ToArray());
+            return result;
+        }
+        finally
+        {
+            socket.Close();
+        }
     }
 }
