@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 
@@ -41,6 +40,10 @@ internal class Connection
 
             var result = Encoding.ASCII.GetString(resultPack.ToArray());
             return result;
+        }
+        catch (Exception e)
+        {
+            throw new CommandFailedSendException(e);
         }
         finally
         {

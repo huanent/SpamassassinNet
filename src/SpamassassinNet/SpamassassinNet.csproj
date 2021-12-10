@@ -4,7 +4,21 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
+        <LangVersion>default</LangVersion>
+        <Authors>Huanent</Authors>
+        <Description>A spam assassin dotnet client.</Description>
+        <PackageProjectUrl>https://github.com/huanent/SpamassassinNet</PackageProjectUrl>
+        <PackageLicenseUrl>TIM</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/huanent/SpamassassinNet</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>spamassassin dotnet client spamc</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 </Project>
