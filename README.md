@@ -1,5 +1,6 @@
 ## The [SpamAssassin Network Protocol](https://svn.apache.org/repos/asf/spamassassin/trunk/spamd/PROTOCOL) dotnet implementation
-![Nuget](https://img.shields.io/nuget/v/SpamassassinNet?style=for-the-badge)
+[![Nuget](https://img.shields.io/nuget/v/SpamassassinNet?style=for-the-badge)](https://www.nuget.org/packages/SpamassassinNet)
+
 ### Usage
 
 ```
